@@ -28,3 +28,9 @@ sudo install -o root -g root -m 0700 /vagrant/files/chef-server.cron /etc/cron.d
 sudo install -o root -g root -m 0700 /vagrant/files/client.rb /etc/chef/
 
 sudo chef-client -K /etc/chef-server/chef-validator.pem
+
+
+## setup Knife
+install -d ~/.chef
+sudo install -o ubuntu -g ubuntu -m 0644 /vagrant/files/knife.rb ~/.chef/
+
