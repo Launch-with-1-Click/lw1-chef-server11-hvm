@@ -33,6 +33,6 @@ sudo chef-client
 
 
 ## setup Knife
-install -d ~/.chef
-sudo install -o ubuntu -g ubuntu -m 0644 /vagrant/files/knife.rb ~/.chef/
+install -d /home/ubuntu/.chef
+sudo install -o ubuntu -g ubuntu -m 0644 /vagrant/files/knife.rb /home/ubuntu/.chef/
 
