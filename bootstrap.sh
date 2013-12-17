@@ -18,9 +18,9 @@ sudo dpkg -i ${CHEFSERVER_PKG}
 rm ${CHEFSERVER_PKG}
 
 ## Configure Chef-Server
+sudo install -d /etc/chef-server
 sudo install -o root -g root -m 0640 /vagrant/files/chef-server.rb /etc/chef-server/
 sudo chef-server-ctl reconfigure
-sudo chef-server-ctl restart
 
 ## miscs
 
