@@ -1,8 +1,8 @@
-system('sudo install -o ubuntu -g ubuntu -m 0600 /etc/chef-server/admin.pem ~./chef/')
-system('sudo install -o ubuntu -g ubuntu -m 0600 /etc/chef-server/chef-validator.pem ~./chef/')
+system('sudo install -o ubuntu -g ubuntu -m 0600 /etc/chef-server/admin.pem ~/.chef/')
+system('sudo install -o ubuntu -g ubuntu -m 0600 /etc/chef-server/chef-validator.pem ~/.chef/')
 
 require 'ohai'
-ohai=ohai::system.new
+ohai=Ohai::System.new
 ohai.all_plugins
 
 server_name = ohai.cloud[:public_ipv4]

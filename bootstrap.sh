@@ -26,8 +26,10 @@ sudo chef-server-ctl reconfigure
 
 sudo install -o root -g root -m 0700 /vagrant/files/chef-server.cron /etc/cron.d/cher-server
 sudo install -o root -g root -m 0700 /vagrant/files/client.rb /etc/chef/
+ln -s /etc/chef-server/chef-validator.pem  /etc/chef/validation.pem
 
-sudo chef-client -K /etc/chef-server/chef-validator.pem
+sleep 10
+sudo chef-client
 
 
 ## setup Knife
