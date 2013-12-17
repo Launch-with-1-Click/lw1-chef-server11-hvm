@@ -21,3 +21,10 @@ rm ${CHEFSERVER_PKG}
 sudo install -o root -g root -m 0640 /vagrant/files/chef-server.rb /etc/chef-server/
 sudo chef-server-ctl reconfigure
 sudo chef-server-ctl restart
+
+## miscs
+
+sudo install -o root -g root -m 0700 /vagrant/files/chef-server.cron /etc/cron.d/cher-server
+sudo install -o root -g root -m 0700 /vagrant/files/client.rb /etc/chef/
+
+sudo chef-client -K /etc/chef-server/chef-validator.pem

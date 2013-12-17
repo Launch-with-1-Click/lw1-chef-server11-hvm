@@ -1,0 +1,2 @@
+@reboot root /usr/bin/chef-server-ctl reconfigure && /usr/bin/chef-server-ctl restart
+*/20 * * * * root /usr/bin/chef-client -s 180
