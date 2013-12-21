@@ -6,3 +6,6 @@
 
 
 `vagrant up --provider=aws`
+
+
+`curl https://raw.github.com/Launch-with-1-Click/lw1-chef-server/master/cleanup.sh | bash`
