@@ -24,7 +24,6 @@ cp /dev/null /var/log/syslog
 
 yes | cp /dev/null /root/.ssh/authorized_keys
 yes | cp /dev/null /root/.bash_history
-yes | cp /dev/null /root/.mysql_history
 if [ -d /home/ubuntu ]; then
   yes | cp /dev/null /home/ubuntu/.ssh/authorized_keys
   yes | cp /dev/null /home/ubuntu/.bash_history
