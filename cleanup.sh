@@ -3,7 +3,7 @@
 set -ex
 
 echo "Yes? or Ctrl+C"
-read
+read hoge
 
 apt-get clean all
 
