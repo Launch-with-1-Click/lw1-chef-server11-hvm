@@ -5,4 +5,4 @@
 `VERSION: 11.0.10`
 
 
-`vagrant destro --provider=aws`
+`vagrant up --provider=aws`
