@@ -2,6 +2,7 @@
 set -ex
 
 sudo apt-get -y update
+sudo apt-get -y upgrade
 
 ## Install Chef-Client
 curl -L https://www.getchef.com/chef/install.sh | sudo bash
@@ -24,7 +25,7 @@ sudo chef-server-ctl reconfigure
 
 ## miscs
 
-sudo install -o root -g root -m 0700 /vagrant/files/chef-server.cron /etc/cron.d/cher-server
+sudo install -o root -g root -m 0700 /vagrant/files/chef-server.cron /etc/cron.d/chef-server
 sudo install -o root -g root -m 0700 /vagrant/files/client.rb /etc/chef/
 ln -s /etc/chef-server/chef-validator.pem  /etc/chef/validation.pem
 
