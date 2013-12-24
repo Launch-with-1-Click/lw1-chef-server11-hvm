@@ -14,8 +14,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
     aws.keypair_name = ENV['AWS_EC2_KEYPAIR']
 
-    aws.region = "ap-northeast-1"
-    aws.ami = "ami-3f32ac3e" # Ubuntu12.04
+    aws.region = "us-east-1"
+    aws.ami = "ami-a73264ce" # Ubuntu12.04
 
     override.ssh.username = "ubuntu"
     override.ssh.private_key_path = ENV['AWS_EC2_KEYPASS']
