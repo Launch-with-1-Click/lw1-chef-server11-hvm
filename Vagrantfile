@@ -14,8 +14,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
     aws.keypair_name = ENV['AWS_EC2_KEYPAIR']
 
-    aws.region = "us-east-1"
-    aws.ami = "ami-a73264ce" # Ubuntu12.04
+    aws.region = ENV['AWS_REGION']
+    case ENV['AWS_REGION']
+    when 'ap-northeast-1'
+      aws.ami = "ami-3f32ac3e" # Ubuntu12.04.3 LTS
+    when 'us-east-1'
+      aws.ami = "ami-a73264ce" # Ubuntu12.04.4 LTS
+    else
+      raise "Unsupported region #{ENV['AWS_REGION']}"
+    end
 
     override.ssh.username = "ubuntu"
     override.ssh.private_key_path = ENV['AWS_EC2_KEYPASS']
