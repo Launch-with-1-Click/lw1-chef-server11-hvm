@@ -20,7 +20,7 @@
     {
       "type": "shell",
       "inline": [
-        "curl https://raw.github.com/Launch-with-1-Click/lw1-chef-server/master/cleanup_packer.sh | sudo bash"
+        "curl https://raw.github.com/Launch-with-1-Click/lw1-chef-server/packer/cleanup_packer.sh | sudo bash"
       ]
     }
   ]
