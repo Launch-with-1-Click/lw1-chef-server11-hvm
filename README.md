@@ -9,9 +9,13 @@
 
 `curl https://raw.github.com/Launch-with-1-Click/lw1-chef-server/master/cleanup.sh | bash`
 
-## Build by Packer(testing)
+## Build by Packer
 
-`packer build packer_ec2.json`
+```
+export AWS_ACCESS_KEY='KEY'
+export AWS_SECRET_ACCESS_KEY='SECRET'
+packer build packer_ec2.json
+```
 
 
 ## How to Upgrade on AMI
