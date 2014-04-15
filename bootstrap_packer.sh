@@ -3,6 +3,8 @@ set -ex
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
+sudo apt-get -y update
+sudo apt-get -y install git
 
 ## Install Chef-Client
 curl -L https://www.getchef.com/chef/install.sh | sudo bash
@@ -22,15 +24,16 @@ sudo dpkg -i ${CHEFSERVER_PKG}
 rm ${CHEFSERVER_PKG}
 
 ## Configure Chef-Server
+git clone https://github.com/Launch-with-1-Click/lw1-chef-server.git /tmp/chef-server
 sudo install -d /etc/chef-server
-sudo install -o root -g root -m 0640 /vagrant/files/chef-server.rb /etc/chef-server/
+sudo install -o root -g root -m 0640 /tmp/chef-server/files/chef-server.rb /etc/chef-server/
 sudo chef-server-ctl reconfigure
 
 ## miscs
 
-sudo install -o root -g root -m 0700 /vagrant/files/chef-server.cron /etc/cron.d/chef-server
-sudo install -o root -g root -m 0700 /vagrant/files/client.rb /etc/chef/
-ln -s /etc/chef-server/chef-validator.pem  /etc/chef/validation.pem
+sudo install -o root -g root -m 0700 /tmp/chef-server/files/chef-server.cron /etc/cron.d/chef-server
+sudo install -o root -g root -m 0700 /tmp/chef-server/files/client.rb /etc/chef/
+sudo ln -s /etc/chef-server/chef-validator.pem  /etc/chef/validation.pem
 
 sleep 10
 sudo chef-client
@@ -38,5 +41,5 @@ sudo chef-client
 
 ## setup Knife
 install -d /home/ubuntu/.chef
-sudo install -o ubuntu -g ubuntu -m 0644 /vagrant/files/knife.rb /home/ubuntu/.chef/
+sudo install -o ubuntu -g ubuntu -m 0644 /tmp/chef-server/files/knife.rb /home/ubuntu/.chef/
 

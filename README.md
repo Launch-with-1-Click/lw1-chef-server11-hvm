@@ -7,8 +7,12 @@
 
 `vagrant up --provider=aws`
 
-
 `curl https://raw.github.com/Launch-with-1-Click/lw1-chef-server/master/cleanup.sh | bash`
+
+## Build by Packer(testing)
+
+`packer build packer_ec2.json`
+
 
 ## How to Upgrade on AMI
 
