@@ -19,8 +19,14 @@
     },
     {
       "type": "shell",
+      "scripts": [
+        "hotfix.sh"
+      ]
+    },
+    {
+      "type": "shell",
       "inline": [
-        "curl https://raw.github.com/Launch-with-1-Click/lw1-chef-server/master/cleanup_packer.sh | sudo bash"
+        "curl -L https://raw.github.com/Launch-with-1-Click/lw1-chef-server/master/cleanup_packer.sh | sudo bash"
       ]
     }
   ]
