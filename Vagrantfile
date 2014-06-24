@@ -15,6 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     aws.keypair_name = ENV['AWS_EC2_KEYPAIR']
 
     aws.region = ENV['AWS_REGION']
+    aws.instance_type = 'c3.2xlarge'
     case ENV['AWS_REGION']
     when 'ap-northeast-1'
       aws.ami = "ami-3f32ac3e" # Ubuntu12.04.3 LTS
