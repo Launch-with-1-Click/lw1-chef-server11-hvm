@@ -4,9 +4,9 @@
       "type": "amazon-ebs",
       "region": "us-east-1",
       "source_ami": "ami-59a4a230",
-      "instance_type": "c3.large",
+      "instance_type": "c3.2xlarge",
       "ssh_username": "ubuntu",
-      "ami_name": "Chef-Server Packer {{timestamp}}"
+      "ami_name": "Chef-Server 11.1.3Packer {{timestamp}}"
     }
   ],
 
@@ -14,7 +14,7 @@
     {
       "type": "shell",
       "scripts": [
-        "bootstrap_packer.sh"
+        "bootstrap.sh"
       ]
     },
     {
@@ -25,8 +25,8 @@
     },
     {
       "type": "shell",
-      "inline": [
-        "curl -L https://raw.github.com/Launch-with-1-Click/lw1-chef-server/master/cleanup_packer.sh | sudo bash"
+      "scripts": [
+        "cleanup.sh"
       ]
     }
   ]
