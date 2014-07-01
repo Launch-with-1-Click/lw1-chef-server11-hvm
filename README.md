@@ -2,12 +2,14 @@
 
 ![Chef-Server](./_images/chef_server_login.png)
 
-`VERSION: 11.1.0`
+`VERSION: 11.1.3`
 
+## Vagrant
 
 `vagrant up --provider=aws`
 
 `curl -L https://raw.github.com/Launch-with-1-Click/lw1-chef-server/master/cleanup.sh | bash`
+`
 
 ## Build by Packer
 
@@ -24,5 +26,6 @@ packer build packer_ec2.json
 2. Upgrade package
   - For rhel family, `rpm -Uvh *.rpm`.
   - For debian family, `dpkg -i *.deb`.
-3. Run `chef-server-ctl reconfigure`.
-3. Restart all services. Do `chef-server-ctl restart`.
+3. Run `chef-server-ctl upgrade`.
+4. Run `chef-server-ctl reconfigure`.
+5. Restart all services. Do `chef-server-ctl restart`.
