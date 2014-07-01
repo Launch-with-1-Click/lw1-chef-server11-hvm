@@ -10,3 +10,4 @@ lb['fqdn'] = server_name
 bookshelf['vip'] = server_name
 
 chef_server_webui['web_ui_admin_default_password'] = ohai[:ec2][:instance_id]
+chef_server_webui['cookie_domain'] = ''

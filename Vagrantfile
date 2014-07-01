@@ -25,6 +25,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       raise "Unsupported region #{ENV['AWS_REGION']}"
     end
 
+    aws.tags = {
+      'Name' => 'Chef-Server_11.1.3'
+    }
+
     override.ssh.username = "ubuntu"
     override.ssh.private_key_path = ENV['AWS_EC2_KEYPASS']
   end
