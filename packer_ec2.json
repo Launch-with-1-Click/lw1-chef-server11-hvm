@@ -3,10 +3,10 @@
     {
       "type": "amazon-ebs",
       "region": "us-east-1",
-      "source_ami": "ami-59a4a230",
-      "instance_type": "c3.2xlarge",
+      "source_ami": "ami-864d84ee",
+      "instance_type": "m3.2xlarge",
       "ssh_username": "ubuntu",
-      "ami_name": "Chef-Server 11.1.3Packer {{timestamp}}"
+      "ami_name": "Chef-Server 11.1.4Packer {{timestamp}}"
     }
   ],
 

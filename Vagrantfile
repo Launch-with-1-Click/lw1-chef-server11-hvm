@@ -15,18 +15,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     aws.keypair_name = ENV['AWS_EC2_KEYPAIR']
 
     aws.region = ENV['AWS_REGION']
-    aws.instance_type = 'c3.2xlarge'
+    aws.instance_type = 'm3.2xlarge'
     case ENV['AWS_REGION']
     when 'ap-northeast-1'
-      aws.ami = "ami-3f32ac3e" # Ubuntu12.04.3 LTS
+      aws.ami = "ami-a1124fa0" # Ubuntu Server 14.04 LTS (HVM), SSD Volume Type
     when 'us-east-1'
-      aws.ami = "ami-a73264ce" # Ubuntu12.04.3 LTS
+      aws.ami = "ami-864d84ee" # Ubuntu Server 14.04 LTS (HVM), SSD Volume Type
     else
       raise "Unsupported region #{ENV['AWS_REGION']}"
     end
 
     aws.tags = {
-      'Name' => 'Chef-Server_11.1.3'
+      'Name' => 'Chef-Server_11.1.4'
     }
 
     override.ssh.username = "ubuntu"

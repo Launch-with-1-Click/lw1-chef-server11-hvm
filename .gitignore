@@ -2,3 +2,4 @@
 env.sh
 env2.sh
 .vagrant/
+/deb_cookbooks/
