@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
 set -ex
 
-
-## for HVM work around from ubuntu forum https://bugs.launchpad.net/cloud-init/+bug/1309079
-sudo rm /boot/grub/menu.lst
-sudo update-grub-legacy-ec2 -y
 sudo apt-get -y update
-echo grub-pc grub-pc/install_devices_disks_changed select /dev/xvda | sudo debconf-set-selections
-echo grub-pc grub-pc/install_devices select /dev/xvda | sudo  debconf-set-selections
-DEBIAN_FRONTEND=noninteractive sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" -y upgrade
+sudo apt-get -y upgrade
 sudo apt-get -y update
 sudo apt-get -y install git
 
@@ -24,7 +18,7 @@ sudo chown root.root /etc/chef/ohai/hints/ec2.json
 
 
 ## Install Chef-Server
-CHEFSERVER_PKG="chef-server_11.1.4-1_amd64.deb"
+CHEFSERVER_PKG="chef-server_11.1.3-1_amd64.deb"
 wget -nv https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/${CHEFSERVER_PKG}
 sudo dpkg -i ${CHEFSERVER_PKG}
 rm ${CHEFSERVER_PKG}
