@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     aws.tags = {
-      'Name' => 'Chef-Server_11.1.3'
+      'Name' => 'Chef-Server_11.1.6 ubuntu12.04.3'
     }
 
     override.ssh.username = "ubuntu"
