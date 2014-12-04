@@ -13,7 +13,7 @@
 
 `vagrant up --provider=aws`
 
-`curl -L https://raw.github.com/Launch-with-1-Click/lw1-chef-server/master/cleanup.sh | bash`
+`curl -L https://raw.github.com/Launch-with-1-Click/lw1-chef-server11-hvm/master/cleanup.sh | bash`
 `
 
 ## Build by Packer
