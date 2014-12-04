@@ -25,8 +25,8 @@ sudo chef-server-ctl reconfigure
 
 ## miscs
 
-sudo install -o root -g root -m 0700 /tmp/chef-server/files/chef-server.cron /etc/cron.d/chef-server
-sudo install -o root -g root -m 0700 /tmp/chef-server/files/client.rb /etc/chef/
+sudo install -o root -g root -m 0644 /tmp/chef-server/files/chef-server.cron /etc/cron.d/chef-server
+sudo install -o root -g root -m 0600 /tmp/chef-server/files/client.rb /etc/chef/
 sudo ln -s /etc/chef-server/chef-validator.pem  /etc/chef/validation.pem
 
 sleep 10
