@@ -11,7 +11,7 @@
       "region": "us-east-1",
       "source_ami": "ami-b66ed3de",
       "instance_type": "c3.2xlarge",
-      "ssh_username": "ubuntu",
+      "ssh_username": "ec2-user",
       "ami_name": "Chef-Server 11.1.6-1 HVM Packer {{timestamp}}"
     }
   ],
