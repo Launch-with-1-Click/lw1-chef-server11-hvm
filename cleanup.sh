@@ -14,8 +14,8 @@ sudo rm /etc/chef/client.pem
 
 sudo rm -rf /tmp/*
 sudo rm -f /etc/ssh/ssh_host_*
-cd /var/log
-find /var/log/ -type f -name '*.log' -exec sudo cp /dev/null {} \;
+
+sudo find /var/log/ -type f -name '*.log' -exec sudo cp /dev/null {} \;
 sudo cp /dev/null /var/log/syslog
 
 
