@@ -1,11 +1,11 @@
-system('sudo install -o ubuntu -g ubuntu -m 0600 /etc/chef-server/admin.pem ~/.chef/')
-system('sudo install -o ubuntu -g ubuntu -m 0600 /etc/chef-server/chef-validator.pem ~/.chef/')
+system('sudo install -o ec2-user -g ec2-user -m 0600 /etc/chef-server/admin.pem ~/.chef/')
+system('sudo install -o ec2-user -g ec2-user -m 0600 /etc/chef-server/chef-validator.pem ~/.chef/')
 
 require 'ohai'
 ohai=Ohai::System.new
 ohai.all_plugins
 
-server_name = ohai.cloud[:public_ipv4]
+server_name = ohai[:cloud][:public_ipv4] || ohai[:cloud][:local_ipv4] || ohai[:ipaddress]
 
 log_level                :info
 log_location             STDOUT

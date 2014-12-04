@@ -2,7 +2,12 @@
 
 ![Chef-Server](./_images/chef_server_login.png)
 
-`VERSION: 11.1.3`
+`VERSION: 11.1.6`
+
+## Includes
+
+- Chef-Server11 Open Source Edition
+- Chef-DK 3.x
 
 ## Vagrant
 
@@ -22,10 +27,8 @@ packer build packer_ec2.json
 
 ## How to Upgrade on AMI
 
-1. Download package (such as *.deb or *.rpm) from [getchef website](http://www.getchef.com/chef/install/).
-2. Upgrade package
-  - For rhel family, `rpm -Uvh *.rpm`.
-  - For debian family, `dpkg -i *.deb`.
-3. Run `chef-server-ctl upgrade`.
-4. Run `chef-server-ctl reconfigure`.
-5. Restart all services. Do `chef-server-ctl restart`.
+1. Upgrade chef-server
+  - `yum update`.
+2. Run `chef-server-ctl upgrade`.
+3. Run `chef-server-ctl reconfigure`.
+4. Restart all services. Do `chef-server-ctl restart`.

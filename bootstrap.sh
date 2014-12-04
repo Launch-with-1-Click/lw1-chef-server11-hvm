@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 set -ex
 
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y update
-sudo apt-get -y install git
+curl https://packagecloud.io/install/repositories/chef/stable/script.rpm | sudo bash
 
-## Install Chef-Client
-curl -L https://www.getchef.com/chef/install.sh | sudo bash
+sudo yum update -y
+sudo yum install git -y
 
 ## Setup hint for ec2
 sudo mkdir -p /etc/chef/ohai/hints
@@ -16,15 +13,12 @@ echo '{}' > ./ec2.json
 sudo mv ./ec2.json /etc/chef/ohai/hints/ec2.json
 sudo chown root.root /etc/chef/ohai/hints/ec2.json
 
+## Install Chef-Server11 and ChefDK
+sudo yum install chef-server chefdk -y
 
-## Install Chef-Server
-CHEFSERVER_PKG="chef-server_11.1.6-1_amd64.deb"
-wget -nv https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/${CHEFSERVER_PKG}
-sudo dpkg -i ${CHEFSERVER_PKG}
-rm ${CHEFSERVER_PKG}
 
 ## Configure Chef-Server
-git clone https://github.com/Launch-with-1-Click/lw1-chef-server.git /tmp/chef-server
+git clone https://github.com/Launch-with-1-Click/lw1-chef-server11-hvm.git /tmp/chef-server
 sudo install -d /etc/chef-server
 sudo install -o root -g root -m 0640 /tmp/chef-server/files/chef-server.rb /etc/chef-server/
 sudo chef-server-ctl reconfigure
@@ -40,6 +34,6 @@ sudo chef-client
 
 
 ## setup Knife
-install -d /home/ubuntu/.chef
-sudo install -o ubuntu -g ubuntu -m 0644 /tmp/chef-server/files/knife.rb /home/ubuntu/.chef/
+install -d /home/ec2-user/.chef
+sudo install -o ec2-user -g ec2-user -m 0644 /tmp/chef-server/files/knife.rb /home/ec2-user/.chef/
 

@@ -9,10 +9,10 @@
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "us-east-1",
-      "source_ami": "ami-59a4a230",
+      "source_ami": "ami-b66ed3de",
       "instance_type": "c3.2xlarge",
       "ssh_username": "ubuntu",
-      "ami_name": "Chef-Server 11.1.6-1 Packer {{timestamp}}"
+      "ami_name": "Chef-Server 11.1.6-1 HVM Packer {{timestamp}}"
     }
   ],
 
