@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -ex
 
+sudo yum update -y
+sudo yum install git -y
+
 curl -s https://packagecloud.io/install/repositories/chef/stable/script.rpm.sh > /tmp/repo.sh
 sudo bash /tmp/repo.sh
 rm -f /tmp/repo.sh
-
-sudo yum update -y
-sudo yum install git -y
 
 ## Setup hint for ec2
 sudo mkdir -p /etc/chef/ohai/hints

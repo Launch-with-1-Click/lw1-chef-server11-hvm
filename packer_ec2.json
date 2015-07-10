@@ -12,7 +12,7 @@
       "source_ami": "ami-1ecae776",
       "instance_type": "c3.2xlarge",
       "ssh_username": "ec2-user",
-      "ami_name": "Chef-Server 11.1.6-1 HVM Packer {{timestamp}}"
+      "ami_name": "Chef-Server 11.1.7-1 HVM Packer {{timestamp}}"
     }
   ],
 
