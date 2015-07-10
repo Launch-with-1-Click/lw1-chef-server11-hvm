@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -ex
 
-curl https://packagecloud.io/install/repositories/chef/stable/script.rpm | sudo bash
+curl -s https://packagecloud.io/install/repositories/chef/stable/script.rpm.sh > /tmp/repo.sh
+sudo bash /tmp/repo.sh
+rm -f /tmp/repo.sh
 
 sudo yum update -y
 sudo yum install git -y

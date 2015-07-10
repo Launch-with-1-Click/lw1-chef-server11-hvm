@@ -13,20 +13,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     aws.access_key_id = ENV['AWS_ACCESS_KEY']
     aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
     aws.keypair_name = ENV['AWS_EC2_KEYPAIR']
+    aws.user_data = "#!/bin/bash\nsed -i -e 's/^Defaults.*requiretty/# Defaults requiretty/g' /etc/sudoers"
 
     aws.region = ENV['AWS_REGION']
     aws.instance_type = 'c3.2xlarge'
     case ENV['AWS_REGION']
     when 'ap-northeast-1'
-      aws.ami = 'ami-4985b048' # Amazon Linux AMI 2014.09.1 (HVM)
+      aws.ami = 'ami-cbf90ecb' # Amazon Linux AMI 2015.03.0 (HVM) SSD
     when 'us-east-1'
-      aws.ami = 'ami-b66ed3de' # Amazon Linux AMI 2014.09.1 (HVM)
+      aws.ami = 'ami-1ecae776' # Amazon Linux AMI 2015.03.0 (HVM) SSD
     else
       raise "Unsupported region #{ENV['AWS_REGION']}"
     end
 
     aws.tags = {
-      'Name' => 'Chef-Server_11.1.6 Amazon Linux2014.09 HVM'
+      'Name' => 'Chef-Server_11.1.7-1 Amazon Linux2015.03 HVM'
     }
 
     override.ssh.username = "ec2-user"
