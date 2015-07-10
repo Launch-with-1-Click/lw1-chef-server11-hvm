@@ -2,7 +2,7 @@
 
 ![Chef-Server](./_images/chef_server_login.png)
 
-`VERSION: 11.1.6`
+[Relase Notes](https://github.com/Launch-with-1-Click/lw1-chef-server11-hvm/wiki/Release-notes)
 
 ## Includes
 
