@@ -21,7 +21,11 @@ sudo yum install chef-server chefdk -y
 
 ## Configure Chef-Server
 mkdir -p /tmp/chef-server
-sudo rsync -av /vagrant/files /tmp/chef-server/
+if [ -d /vagrant ] ; then
+  sudo rsync -av /vagrant/files /tmp/chef-server/
+else
+  git clone https://github.com/Launch-with-1-Click/lw1-chef-server11-hvm.git /tmp/chef-server
+fi
 sudo install -d /etc/chef-server
 sudo install -o root -g root -m 0640 /tmp/chef-server/files/chef-server.rb /etc/chef-server/
 sudo chef-server-ctl reconfigure
