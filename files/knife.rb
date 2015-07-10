@@ -14,3 +14,5 @@ client_key               '~/.chef/admin.pem'
 validation_client_name   'chef-validator'
 validation_key           '~/.chef/chef-validator.pem'
 chef_server_url          "https://#{server_name}"
+ssl_verify_mode          :verify_none # To remove it, Run knife ssl fetch.
+verify_api_cert          false

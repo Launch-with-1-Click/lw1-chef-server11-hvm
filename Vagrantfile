@@ -4,6 +4,13 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+if Vagrant::VERSION == "1.7.2"
+  synced_folder_files = Dir.glob(File.expand_path("../.vagrant/machines/**/synced_folders", __FILE__))
+  synced_folder_files.map do |synced_folder_file|
+    File.unlink(synced_folder_file) if File.exists?(synced_folder_file)
+  end
+end
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "dummy"
 
