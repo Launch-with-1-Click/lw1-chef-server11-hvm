@@ -3,6 +3,7 @@ set -ex
 
 sudo yum update -y
 sudo yum install git -y
+sudo yum clean all
 
 curl -s https://packagecloud.io/install/repositories/chef/stable/script.rpm.sh > /tmp/repo.sh
 sudo bash /tmp/repo.sh
