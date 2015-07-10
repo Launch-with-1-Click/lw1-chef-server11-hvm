@@ -7,7 +7,7 @@
 ## Includes
 
 - Chef-Server11 Open Source Edition
-- Chef-DK 3.x
+- Chef-DK
 
 ## Vagrant
 
