@@ -23,18 +23,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     aws.user_data = "#!/bin/bash\nsed -i -e 's/^Defaults.*requiretty/# Defaults requiretty/g' /etc/sudoers"
 
     aws.region = ENV['AWS_REGION']
-    aws.instance_type = 'c3.2xlarge'
+    aws.instance_type = 'c3.large'
     case ENV['AWS_REGION']
     when 'ap-northeast-1'
-      aws.ami = 'ami-cbf90ecb' # Amazon Linux AMI 2015.03.0 (HVM) SSD
+      aws.ami = 'ami-383c1956' # Amazon Linux AMI 2015.09.1 (HVM) SSD
     when 'us-east-1'
-      aws.ami = 'ami-1ecae776' # Amazon Linux AMI 2015.03.0 (HVM) SSD
+      aws.ami = 'ami-60b6c60a' # Amazon Linux AMI 2015.09.1 (HVM) SSD
     else
       raise "Unsupported region #{ENV['AWS_REGION']}"
     end
 
     aws.tags = {
-      'Name' => 'Chef-Server_11.1.7-1 Amazon Linux2015.03 HVM'
+      'Name' => "Chef-Server 11 #{ENV['PRODUCT_VERSION']} (Developed by #{ENV['USER']})"
     }
 
     override.ssh.username = "ec2-user"
